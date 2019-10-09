@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: ba4b1e30a103f274c840e456c8115a14,
     type: 2}
   m_UseShadowmask: 1
@@ -1702,7 +1703,7 @@ Terrain:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755565425}
   m_Enabled: 1
-  serializedVersion: 5
+  serializedVersion: 6
   m_TerrainData: {fileID: 15600000, guid: 7be86f247a2effb4280d0daaeb2d418e, type: 2}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
@@ -1725,6 +1726,7 @@ Terrain:
   m_ScaleInLightmap: 0.0256
   m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
   m_GroupingID: 0
+  m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
 --- !u!4 &1986298231 stripped
 Transform:
@@ -1752,12 +1754,12 @@ PrefabInstance:
     - target: {fileID: 6219027395646575930, guid: aa3b681d8de878843b324803928bf5e5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.2
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 6219027395646575930, guid: aa3b681d8de878843b324803928bf5e5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 36.5
+      value: 14.72
       objectReference: {fileID: 0}
     - target: {fileID: 6219027395646575930, guid: aa3b681d8de878843b324803928bf5e5,
         type: 3}
@@ -1802,7 +1804,7 @@ PrefabInstance:
     - target: {fileID: 1989312468186338177, guid: aa3b681d8de878843b324803928bf5e5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.101651
+      value: -4.10165
       objectReference: {fileID: 0}
     - target: {fileID: 1989312468186338177, guid: aa3b681d8de878843b324803928bf5e5,
         type: 3}
@@ -1812,12 +1814,12 @@ PrefabInstance:
     - target: {fileID: 1989312468186338177, guid: aa3b681d8de878843b324803928bf5e5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.054165
+      value: 31.254166
       objectReference: {fileID: 0}
     - target: {fileID: 8998280947419511791, guid: aa3b681d8de878843b324803928bf5e5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.101651
+      value: -4.10165
       objectReference: {fileID: 0}
     - target: {fileID: 8998280947419511791, guid: aa3b681d8de878843b324803928bf5e5,
         type: 3}
@@ -1827,7 +1829,7 @@ PrefabInstance:
     - target: {fileID: 8998280947419511791, guid: aa3b681d8de878843b324803928bf5e5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.054165
+      value: 31.254166
       objectReference: {fileID: 0}
     - target: {fileID: 2557510418467405989, guid: aa3b681d8de878843b324803928bf5e5,
         type: 3}
@@ -1838,6 +1840,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2557510418467405990, guid: aa3b681d8de878843b324803928bf5e5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa3b681d8de878843b324803928bf5e5, type: 3}

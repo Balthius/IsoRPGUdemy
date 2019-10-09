@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -40,16 +40,17 @@ namespace RPG.SceneManagement
             Fader fader = FindObjectOfType<Fader>();
             
             yield return fader.FadeOut(fadeOutTime);
-
+            Debug.Log("Finished Fade Out");
             SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
+            
             wrapper.Save();
-
             yield return SceneManager.LoadSceneAsync(sceneToLoad);
-
+            Debug.Log("Finished Load Async (Not Reached)");
             wrapper.Load();
             
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
+            Debug.Log("Finished Updating Player");
 
             wrapper.Save();
 

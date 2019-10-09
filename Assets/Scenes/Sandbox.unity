@@ -5071,57 +5071,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1989312468186338177, guid: aa3b681d8de878843b324803928bf5e5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 31.25416
-      objectReference: {fileID: 0}
-    - target: {fileID: 1989312468186338177, guid: aa3b681d8de878843b324803928bf5e5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.122806
-      objectReference: {fileID: 0}
-    - target: {fileID: 1989312468186338177, guid: aa3b681d8de878843b324803928bf5e5,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -14.401663
-      objectReference: {fileID: 0}
-    - target: {fileID: 1989312468186338177, guid: aa3b681d8de878843b324803928bf5e5,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.21345405
-      objectReference: {fileID: 0}
-    - target: {fileID: 8998280947419511791, guid: aa3b681d8de878843b324803928bf5e5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 31.25416
-      objectReference: {fileID: 0}
-    - target: {fileID: 8998280947419511791, guid: aa3b681d8de878843b324803928bf5e5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.122806
-      objectReference: {fileID: 0}
-    - target: {fileID: 8998280947419511791, guid: aa3b681d8de878843b324803928bf5e5,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -14.401663
-      objectReference: {fileID: 0}
-    - target: {fileID: 2557510418467405989, guid: aa3b681d8de878843b324803928bf5e5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 23.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2557510418467405989, guid: aa3b681d8de878843b324803928bf5e5,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7436999964377986477, guid: aa3b681d8de878843b324803928bf5e5,
-        type: 3}
-      propertyPath: persistentObjectsPrefab
-      value: 
-      objectReference: {fileID: 2093028434272857062, guid: 80d1de7caf4ed014c8312a483cb45dd3,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa3b681d8de878843b324803928bf5e5, type: 3}
 --- !u!114 &7762037718746165908
