@@ -13,6 +13,7 @@ namespace RPG.Saving
     {
         public IEnumerator LoadLastScene(string saveFile)
         {
+            Debug.Log(Application.persistentDataPath);
             Dictionary<string, object> state = LoadFile(saveFile);
             int buildIndex = SceneManager.GetActiveScene().buildIndex;
             if (state.ContainsKey("lastSceneBuildIndex"))
@@ -42,15 +43,15 @@ namespace RPG.Saving
 
         private Dictionary<string, object> LoadFile(string saveFile)
         {
-            string path = GetPathFromSaveFile(saveFile);
-            if (!File.Exists(path))
+            string path = GetPathFromSaveFile(saveFile); // Finds save File
+            if (!File.Exists(path)) // if Save doesn't exist return an empty dictionary
             {
                 return new Dictionary<string, object>();
             }
-            using (FileStream stream = File.Open(path, FileMode.Open))
+            using (FileStream stream = File.Open(path, FileMode.Open))//use the save
             {
                 BinaryFormatter formatter = new BinaryFormatter();
-                return (Dictionary<string, object>)formatter.Deserialize(stream);
+                return (Dictionary<string, object>)formatter.Deserialize(stream); //deserialize the save
             }
         }
 
@@ -69,7 +70,7 @@ namespace RPG.Saving
         {
             foreach (SaveableEntity saveable in FindObjectsOfType<SaveableEntity>())
             {
-                state[saveable.GetUniqueIdentifier()] = saveable.CaptureState();
+                state[saveable.GetUniqueIdentifier()] = saveable.CaptureState();//dict key val = captured state
             }
 
             state["lastSceneBuildIndex"] = SceneManager.GetActiveScene().buildIndex;

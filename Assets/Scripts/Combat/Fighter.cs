@@ -9,14 +9,16 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] float weaponRange = 2f;
-
-        [SerializeField] float weaponDamage = 4f;
-
-        [SerializeField] float timeBetweenAttacks = 1f;
-
+        [SerializeField] Transform rightHandTransform = null, leftHandTransform = null;
+        [SerializeField] Weapon defaultWeapon = null;
+        Weapon equippedWeapon = null;
         private bool canAttack = true;
         Health target;
+
+        private void Start()
+        {
+            EquipWeapon(defaultWeapon);
+        }
 
         private void Update()
         {
@@ -41,6 +43,12 @@ namespace RPG.Combat
             }
         }
 
+        public void EquipWeapon(Weapon weapon)
+        {
+            equippedWeapon = weapon;
+            Animator animator = GetComponent<Animator>();
+            equippedWeapon.Spawn(rightHandTransform, leftHandTransform , animator);
+        }
         private void AttackBehavior()
         {
             transform.LookAt(target.transform);
@@ -55,7 +63,7 @@ namespace RPG.Combat
 
         private bool GetIsInRange()
         {
-            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+            return Vector3.Distance(transform.position, target.transform.position) < equippedWeapon.WeaponRange;
         }
 
         public bool CanAttack(GameObject combatTarget)
@@ -94,15 +102,30 @@ namespace RPG.Combat
 
         //Animation Event
         private void Hit()
-        {   if (target != null)
+        {   
+
+
+            if (target == null) return;
+            if(equippedWeapon.HasProjectile())
             {
-                target.TakeDamage(weaponDamage);
+                equippedWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
             }
+            else
+            {
+                target.TakeDamage(equippedWeapon.WeaponDamage);
+            }
+
+            
+        }
+
+        void Shoot()
+        {
+            Hit();
         }
         private IEnumerator HasAttackedRecently()
         {
             canAttack = false;
-            yield return new WaitForSeconds(timeBetweenAttacks);
+            yield return new WaitForSeconds(equippedWeapon.TimeBetweenAttacks);
             canAttack = true;
         }
     }

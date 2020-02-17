@@ -57,3 +57,6 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+*.lock
+.vs/IsoRPGUdemy/v15/Server/sqlite3/db.lock
+.vs/IsoRPGUdemy/v16/Server/sqlite3/db.lock

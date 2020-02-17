@@ -20,14 +20,15 @@ namespace RPG.SceneManagement
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F9))
-            {
-                Load();
-            }
             if (Input.GetKeyDown(KeyCode.F5))
             {
                 Save();
             }
+            if (Input.GetKeyDown(KeyCode.F9))
+            {
+                Load();
+            }
+            
         }
 
         public void Save()
