@@ -1,13 +1,13 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
-
+using RPG.Saving;
+using RPG.Resources;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] Transform rightHandTransform = null, leftHandTransform = null;
         [SerializeField] Weapon defaultWeapon = null;
@@ -17,7 +17,10 @@ namespace RPG.Combat
 
         private void Start()
         {
+            if(equippedWeapon == null)
+            {
             EquipWeapon(defaultWeapon);
+            }
         }
 
         private void Update()
@@ -48,6 +51,11 @@ namespace RPG.Combat
             equippedWeapon = weapon;
             Animator animator = GetComponent<Animator>();
             equippedWeapon.Spawn(rightHandTransform, leftHandTransform , animator);
+        }
+
+        public Health GetTarget()
+        {
+            return target;
         }
         private void AttackBehavior()
         {
@@ -108,11 +116,11 @@ namespace RPG.Combat
             if (target == null) return;
             if(equippedWeapon.HasProjectile())
             {
-                equippedWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+                equippedWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject);
             }
             else
             {
-                target.TakeDamage(equippedWeapon.WeaponDamage);
+                target.TakeDamage(gameObject, equippedWeapon.WeaponDamage);
             }
 
             
@@ -127,6 +135,19 @@ namespace RPG.Combat
             canAttack = false;
             yield return new WaitForSeconds(equippedWeapon.TimeBetweenAttacks);
             canAttack = true;
+        }
+
+        public object CaptureState()
+        {
+            return equippedWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+
+            string weaponName = (string)state;
+            Weapon weapon = UnityEngine.Resources.Load<Weapon>(weaponName);
+            EquipWeapon(weapon);
         }
     }
 }

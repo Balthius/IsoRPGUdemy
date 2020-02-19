@@ -7,10 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8053025838310064947, guid: b64db689b6cd4ec4aa85cf29d3648aed,
+    - target: {fileID: 1808700795611983045, guid: b64db689b6cd4ec4aa85cf29d3648aed,
         type: 3}
-      propertyPath: m_Name
-      value: Archer
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d6dc51812a491d479a70ad5575f7dd9,
+        type: 2}
+    - target: {fileID: 3114970031789969201, guid: b64db689b6cd4ec4aa85cf29d3648aed,
+        type: 3}
+      propertyPath: healthPoints
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4428008639847265518, guid: b64db689b6cd4ec4aa85cf29d3648aed,
+        type: 3}
+      propertyPath: characterClass
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8053025838310064943, guid: b64db689b6cd4ec4aa85cf29d3648aed,
         type: 3}
@@ -67,16 +78,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1808700795611983045, guid: b64db689b6cd4ec4aa85cf29d3648aed,
+    - target: {fileID: 8053025838310064947, guid: b64db689b6cd4ec4aa85cf29d3648aed,
         type: 3}
-      propertyPath: defaultWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 8d6dc51812a491d479a70ad5575f7dd9,
-        type: 2}
-    - target: {fileID: 3114970031789969201, guid: b64db689b6cd4ec4aa85cf29d3648aed,
-        type: 3}
-      propertyPath: healthPoints
-      value: 180
+      propertyPath: m_Name
+      value: Archer
       objectReference: {fileID: 0}
     - target: {fileID: 9181395336262424585, guid: b64db689b6cd4ec4aa85cf29d3648aed,
         type: 3}

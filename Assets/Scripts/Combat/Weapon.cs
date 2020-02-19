@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using RPG.Core;
+using RPG.Resources;
 
 namespace RPG.Combat
 {
@@ -47,7 +47,7 @@ namespace RPG.Combat
             }
             else if (overRideController != null)
             {
-                    animator.runtimeAnimatorController = overRideController.runtimeAnimatorController;// if the animator is overriden reset the override to the "parent"
+                    animator.runtimeAnimatorController = overRideController.runtimeAnimatorController;// if the animator is overridden reset the override to the "parent"
             }
         }
 
@@ -73,10 +73,10 @@ namespace RPG.Combat
             return handTransform;
         }
 
-        public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target)
+        public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target, GameObject instigator)
         {
             Projectile projectileInstance = Instantiate(projectile, GetTransform(rightHand, leftHand).position, Quaternion.identity);
-            projectileInstance.SetTarget(target, weaponDamage);
+            projectileInstance.SetTarget(target, instigator, weaponDamage);
         }
 
         public bool HasProjectile()

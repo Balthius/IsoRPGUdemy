@@ -33,6 +33,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5506790698646417999, guid: c7fd7a990ab34204c8b9d829427b0c21,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3645877611193922754, guid: c7fd7a990ab34204c8b9d829427b0c21,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3645877611193922754, guid: c7fd7a990ab34204c8b9d829427b0c21,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3645877611193922781, guid: c7fd7a990ab34204c8b9d829427b0c21,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3645877611193922782, guid: c7fd7a990ab34204c8b9d829427b0c21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -88,16 +108,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3645877611193922754, guid: c7fd7a990ab34204c8b9d829427b0c21,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3645877611193922754, guid: c7fd7a990ab34204c8b9d829427b0c21,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 4918794741953059636, guid: c7fd7a990ab34204c8b9d829427b0c21,
         type: 3}
       propertyPath: weaponDamage
@@ -142,20 +152,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 7f5c0136999d0a84290ed240ac56bf51,
         type: 2}
+    - target: {fileID: 6929254692458595103, guid: c7fd7a990ab34204c8b9d829427b0c21,
+        type: 3}
+      propertyPath: characterClass
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8529891047324842176, guid: c7fd7a990ab34204c8b9d829427b0c21,
         type: 3}
       propertyPath: healthPoints
       value: 450
-      objectReference: {fileID: 0}
-    - target: {fileID: -5506790698646417999, guid: c7fd7a990ab34204c8b9d829427b0c21,
-        type: 3}
-      propertyPath: uniqueIdentifier
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3645877611193922781, guid: c7fd7a990ab34204c8b9d829427b0c21,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7fd7a990ab34204c8b9d829427b0c21, type: 3}

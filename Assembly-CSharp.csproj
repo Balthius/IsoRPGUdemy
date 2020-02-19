@@ -76,11 +76,14 @@
     <Compile Include="Assets\Scripts\Core\ActionScheduler.cs" />
     <Compile Include="Assets\Scripts\Core\DestroyAfterEffect.cs" />
     <Compile Include="Assets\Scripts\Core\FollowCamera.cs" />
-    <Compile Include="Assets\Scripts\Core\Health.cs" />
     <Compile Include="Assets\Scripts\Core\IAction.cs" />
     <Compile Include="Assets\Scripts\Core\PersistentObjectsSpawner.cs" />
     <Compile Include="Assets\Scripts\FindMissingScripts.cs" />
     <Compile Include="Assets\Scripts\Movement\CharacterMovement.cs" />
+    <Compile Include="Assets\Scripts\Resources\EnemyHealthDisplay.cs" />
+    <Compile Include="Assets\Scripts\Resources\Experience.cs" />
+    <Compile Include="Assets\Scripts\Resources\Health.cs" />
+    <Compile Include="Assets\Scripts\Resources\HealthDisplay.cs" />
     <Compile Include="Assets\Scripts\Saving\ISaveable.cs" />
     <Compile Include="Assets\Scripts\Saving\SaveableEntity.cs" />
     <Compile Include="Assets\Scripts\Saving\SavingSystem.cs" />
@@ -88,6 +91,9 @@
     <Compile Include="Assets\Scripts\SceneManagement\Fader.cs" />
     <Compile Include="Assets\Scripts\SceneManagement\Portal.cs" />
     <Compile Include="Assets\Scripts\SceneManagement\SavingWrapper.cs" />
+    <Compile Include="Assets\Scripts\Stats\BaseStats.cs" />
+    <Compile Include="Assets\Scripts\Stats\CharacterClass.cs" />
+    <Compile Include="Assets\Scripts\Stats\Progression.cs" />
     <None Include="Assets\Asset Packs\Synty - Polygon Student Sample\README - Usage Rights for these assets.txt" />
     <None Include="Assets\Asset Packs\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
     <None Include="Assets\Asset Packs\BOXOPHOBIC\Skybox Cubemap Extended\Shaders\Skybox Cubemap Extended.shader" />
