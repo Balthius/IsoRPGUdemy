@@ -29,7 +29,7 @@ namespace RPG.Combat
             else
             {
                 Health health = fighter.GetTarget().GetComponent<Health>();
-                GetComponent<Text>().text = String.Format("{0:0}%", health.GetPercentage());//0.0 to change to 1 higher level of precision
+                GetComponent<Text>().text = String.Format("{0:0}/1:0}%", health.GetHealthPoints(), health.GetMaxHealthPoints());//0.0 to change to 1 higher level of precision
             }
            
         }

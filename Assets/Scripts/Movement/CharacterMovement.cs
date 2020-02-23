@@ -18,19 +18,16 @@ namespace RPG.Movement
 
         NavMeshAgent navMeshAgent;
         Health health;
-        private void Start()
+
+
+        private void Awake()
         {
             health = GetComponent<Health>();
             navMeshAgent = GetComponent<NavMeshAgent>();
-            
-            navMeshAgent.enabled = true;
         }
         void Update()
         {
-            if(health.IsDead())
-            {
-            navMeshAgent.enabled = false;
-            }
+            navMeshAgent.enabled = !health.IsDead();
             
             UpdateAnimator();
         }
@@ -82,10 +79,11 @@ namespace RPG.Movement
         public void RestoreState(object state)
         {
             MovementSaveData data = (MovementSaveData)state;
-            GetComponent<NavMeshAgent>().enabled = false;
+            navMeshAgent.enabled = false;
             transform.position = data.position.ToVector();
             transform.eulerAngles = data.rotation.ToVector();
-            GetComponent<NavMeshAgent>().enabled = true;
+            navMeshAgent.enabled = true;
+            GetComponent<ActionScheduler>().CancelCurrentAction();// mine WAS missing this, why?
         }
 
         private void OnDrawGizmos()
