@@ -26,6 +26,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1964250e67218e540aa3659bc55af757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorMappings:
+  - type: 0
+    texture: {fileID: 2800000, guid: 21628736160fcc9488493401da3ef621, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 1
+    texture: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 2
+    texture: {fileID: 2800000, guid: 2d18e23e3ce249b4489b8bcdd02d3f48, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 3
+    texture: {fileID: 2800000, guid: 2a2b4775272c890448e1bd6239fdfc84, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 4
+    texture: {fileID: 2800000, guid: 4766716444a965b449ef86e524455e71, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 5
+    texture: {fileID: 2800000, guid: f8c873f1e53e83f4aabf342d6be1dfc3, type: 3}
+    hotspot: {x: 0, y: 0}
 --- !u!1001 &5163574907750798768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 3645877611193922781, guid: c7fd7a990ab34204c8b9d829427b0c21,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3645877611193922782, guid: c7fd7a990ab34204c8b9d829427b0c21,
         type: 3}
@@ -157,6 +176,17 @@ PrefabInstance:
       propertyPath: characterClass
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6929254692458595103, guid: c7fd7a990ab34204c8b9d829427b0c21,
+        type: 3}
+      propertyPath: shouldUseModifiers
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6929254692458595103, guid: c7fd7a990ab34204c8b9d829427b0c21,
+        type: 3}
+      propertyPath: levelUpParticleEffect
+      value: 
+      objectReference: {fileID: 2403419583320083590, guid: f71c1992705efe34f8a608520f3541e0,
+        type: 3}
     - target: {fileID: 8529891047324842176, guid: c7fd7a990ab34204c8b9d829427b0c21,
         type: 3}
       propertyPath: healthPoints

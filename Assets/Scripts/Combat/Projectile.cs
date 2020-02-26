@@ -8,7 +8,7 @@ namespace RPG.Combat
     {
 
         [SerializeField] float speed = 3f;
-        Health target;
+        Health target = null;
         float damage = 0;
         [SerializeField]private bool isHoming = true;
         [SerializeField] private GameObject hitEffect = null;
@@ -24,10 +24,8 @@ namespace RPG.Combat
         // Update is called once per frame
         void Update()
         {
-            if(target == null)
-            {
-                return;
-            }
+            if(target == null)return;
+            
             if(isHoming && !target.IsDead())
             {
                 transform.LookAt(GetAimLocation());
@@ -56,11 +54,7 @@ namespace RPG.Combat
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.GetComponent<Health>() != target)
-            {
-                Debug.Log("Invalid Target");
-                return;
-            }
+            if(other.GetComponent<Health>() != target)return;
             if (target.IsDead()) return;
             target.TakeDamage(instigator, damage);
 

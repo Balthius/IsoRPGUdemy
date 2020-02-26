@@ -23,7 +23,7 @@ namespace RPG.Resources
 
         private float GetInitialHealth()
         {
-            return GetComponent<BaseStats>().GetStat(Stat.health);
+            return GetComponent<BaseStats>().GetStat(Stat.Health);
         }
         private void Start()
         {
@@ -46,10 +46,10 @@ namespace RPG.Resources
         public void TakeDamage(GameObject instigator, float damage)
         {
 
-            print(gameObject.name + " took damage: " + damage);
+            //print(gameObject.name + " took damage: " + damage);
             healthPoints.value = Mathf.Max(healthPoints.value - damage, 0);
 
-            if(healthPoints.value <= 0)
+            if(healthPoints.value == 0)
             {
                 Die();
                 AwardExperience(instigator);
@@ -60,7 +60,7 @@ namespace RPG.Resources
         {
          Experience experience = instigator.GetComponent<Experience>();
             if (experience == null) return;
-            experience.GainExperience(GetComponent<BaseStats>().GetStat(Stat.experienceReward));
+            experience.GainExperience(GetComponent<BaseStats>().GetStat(Stat.ExperienceReward));
         }
 
         public float GetHealthPoints()
@@ -70,27 +70,26 @@ namespace RPG.Resources
 
         public float GetMaxHealthPoints()
         {
-            return GetComponent<BaseStats>().GetStat(Stat.health);
+            return GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
         public float GetPercentage()
         {
-            return 100 * (healthPoints.value / GetComponent<BaseStats>().GetStat(Stat.health));
+            return 100 * (healthPoints.value / GetComponent<BaseStats>().GetStat(Stat.Health));
         }
 
         private void Die()
         {
-            if(!isDead)
-            {
-                isDead = true;
-                GetComponent<Animator>().SetTrigger("die");
-                GetComponent<ActionScheduler>().CancelCurrentAction();
-            }
+            if (isDead) return;
+            isDead = true;
+            GetComponent<Animator>().SetTrigger("die");
+            GetComponent<ActionScheduler>().CancelCurrentAction();
+            
         }
 
         public object CaptureState()
         {
-           return healthPoints;
+           return healthPoints.value;
         }
 
         public void RestoreState(object state)
@@ -105,7 +104,7 @@ namespace RPG.Resources
 
         private void FlatRegenerateHealth()
         {
-            float regenHealthPoints = GetComponent<BaseStats>().GetStat(Stat.health) * (regenerationPercentage / 100);
+            float regenHealthPoints = GetComponent<BaseStats>().GetStat(Stat.Health) * (regenerationPercentage / 100);
             healthPoints.value = Mathf.Max(healthPoints.value, regenHealthPoints);
         }
     }

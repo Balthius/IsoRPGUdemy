@@ -38,10 +38,7 @@ namespace RPG.Saving
 
         public void Delete(string saveFile)
         {
-            string path = GetPathFromSaveFile(saveFile);
-            if (!File.Exists(path)) return;
-            
-            File.Delete(path);
+            File.Delete(GetPathFromSaveFile(saveFile));
         }
         private Dictionary<string, object> LoadFile(string saveFile)
         {

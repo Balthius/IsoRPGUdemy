@@ -34,15 +34,8 @@ namespace RPG.Combat
         }
         private void Update()
         {
-            if(target == null)
-            {
-                return;
-            }
-
-            if(target.IsDead())
-            {
-                return;
-            }
+            if(target == null)return;
+            if(target.IsDead()) return;
 
             if (!GetIsInRange())
             {
@@ -64,7 +57,7 @@ namespace RPG.Combat
         private void AttachWeapon(Weapon weapon)
         {
             Animator animator = GetComponent<Animator>();
-            equippedWeapon.value.Spawn(rightHandTransform, leftHandTransform, animator);
+           weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
 
         public Health GetTarget()
@@ -124,15 +117,15 @@ namespace RPG.Combat
 
         public IEnumerable<float> GetAdditiveModifiers(Stat stat)
         {
-            if(stat == Stat.damage)
+            if(stat == Stat.Damage)
             {
-                yield return equippedWeapon.value.WeaponDamage;
+                yield return equippedWeapon.value.GetDamage();
             }
         }
 
         public IEnumerable<float> GetPercentageModifiers(Stat stat)
         {
-            if (stat == Stat.damage)
+            if (stat == Stat.Damage)
             {
                 yield return equippedWeapon.value.GetPercentageBonus();
             }
@@ -142,9 +135,8 @@ namespace RPG.Combat
         private void Hit()
         {   
 
-
             if (target == null) return;
-            float damage = GetComponent<BaseStats>().GetStat(Stat.damage);
+            float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
             if(equippedWeapon.value.HasProjectile())
             {
                 float hardCodedDmg = 10;//replace  later
@@ -154,7 +146,6 @@ namespace RPG.Combat
             {
                 target.TakeDamage(gameObject, damage);
             }
-
             
         }
 

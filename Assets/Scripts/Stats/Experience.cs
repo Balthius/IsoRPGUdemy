@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 using RPG.Saving;
+using System;
 
 namespace RPG.Stats
 {
@@ -12,30 +8,27 @@ namespace RPG.Stats
     {
         [SerializeField] float experiencePoints = 0;
 
-        //public delegate void ExperienceGainedDelegate(); Action below functions as this line as well as the next line, so long as you don't need a return value
-        public event Action OnExperienceGained;
+        public event Action onExperienceGained;
 
         public void GainExperience(float experience)
         {
             experiencePoints += experience;
-            OnExperienceGained();
-        }
-
-        public object CaptureState()
-        {
-            Debug.Log("Capture state points " + experiencePoints);
-            return experiencePoints;
-        }
-        public void RestoreState(object state)
-        {
-            
-            experiencePoints = (float)state;
-            Debug.Log("Restore state points " + experiencePoints);
+            onExperienceGained();
         }
 
         public float GetPoints()
         {
             return experiencePoints;
+        }
+
+        public object CaptureState()
+        {
+            return experiencePoints;
+        }
+
+        public void RestoreState(object state)
+        {
+            experiencePoints = (float)state;
         }
     }
 }

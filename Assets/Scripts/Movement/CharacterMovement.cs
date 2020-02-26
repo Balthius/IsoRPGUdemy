@@ -40,7 +40,7 @@ namespace RPG.Movement
 
         public void MoveTo(Vector3 destination, float speedFraction)
         {
-            GetComponent<NavMeshAgent>().destination = destination;
+            navMeshAgent.destination = destination;
             navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speedFraction);
             navMeshAgent.isStopped = false;
         }
@@ -83,12 +83,7 @@ namespace RPG.Movement
             transform.position = data.position.ToVector();
             transform.eulerAngles = data.rotation.ToVector();
             navMeshAgent.enabled = true;
-            GetComponent<ActionScheduler>().CancelCurrentAction();// mine WAS missing this, why?
-        }
-
-        private void OnDrawGizmos()
-        {
-
+            GetComponent<ActionScheduler>().CancelCurrentAction();//Not included in lecture 85, why?
         }
 
     }

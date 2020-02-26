@@ -1,67 +1,72 @@
-﻿using RPG.Stats;
-using System;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-
-[CreateAssetMenu(fileName = "Progression", menuName = "Stats/NewProgression", order = 0)]
-public class Progression : ScriptableObject
+namespace RPG.Stats
 {
-    [SerializeField] ProgressionCharacterClass[] characterClasses = null;
-
-    Dictionary<CharacterClass, Dictionary<Stat, float[]>> lookupTable = null;
-    public float GetStat(Stat stat, CharacterClass characterClass, int level)
-        {
-        BuildLookup();// Populate the lookupTable
-
-        float[] levels = lookupTable[characterClass][stat];// check 
-
-        if(levels.Length < level)
-        {
-            return 0;
-        }
-        return levels[level-1];
-      
-        }
-    public int GetLevels(Stat stat, CharacterClass characterClass)
+    [CreateAssetMenu(fileName = "Progression", menuName = "Stats/New Progression", order = 0)]
+    public class Progression : ScriptableObject
     {
-        Debug.Log("stat: " + stat + " class: " + characterClass);
-        Debug.Log(lookupTable[characterClass][stat]);
-        BuildLookup();
-        float[] levels = lookupTable[characterClass][stat];
-        return levels.Length;
-    }
-    private void BuildLookup()
-    {
-        if (lookupTable != null) return;
-        lookupTable = new Dictionary<CharacterClass, Dictionary<Stat, float[]>>();
+        [SerializeField] ProgressionCharacterClass[] characterClasses = null;
 
+        Dictionary<CharacterClass, Dictionary<Stat, float[]>> lookupTable = null;
 
-        foreach (ProgressionCharacterClass progressionClass in characterClasses)
+        public float GetStat(Stat stat, CharacterClass characterClass, int level)
         {
-            var statLookupTable = new Dictionary<Stat, float[]>();//Set each stat you want to perform a lookup on
+            BuildLookup();
 
-            foreach (ProgressionStat progressionStat in progressionClass.stats)
+            float[] levels = lookupTable[characterClass][stat];
+
+            if (levels.Length < level)
             {
-                statLookupTable[progressionStat.stat] = progressionStat.levels; //grab the value that cooresponds to the stat and it's matching level.
+                Debug.Log(levels.Length + level + " level and class " + characterClass + " and stat " + stat);
+                return 0;
             }
 
+            return levels[level - 1];
+        }
+
+        public int GetLevels(Stat stat, CharacterClass characterClass)
+        {
+            BuildLookup();
+
+            float[] levels = lookupTable[characterClass][stat];
+            return levels.Length;
+        }
+
+        private void BuildLookup()
+        {
+            if (lookupTable != null) return;
+            lookupTable = new Dictionary<CharacterClass, Dictionary<Stat, float[]>>();
+
+            foreach (ProgressionCharacterClass progressionClass in characterClasses)
+            {
+                var statLookupTable = new Dictionary<Stat, float[]>();
+
+                foreach (ProgressionStat progressionStat in progressionClass.stats)
+                {
+                    statLookupTable[progressionStat.stat] = progressionStat.levels;
+                }
 
                 lookupTable[progressionClass.characterClass] = statLookupTable;
+
+
+
+            }
+        }
+
+        [System.Serializable]
+        class ProgressionCharacterClass
+        {
+            public CharacterClass characterClass;
+            public ProgressionStat[] stats;
+        }
+
+        [System.Serializable]
+        class ProgressionStat
+        {
+            public Stat stat;
+            public float[] levels;
         }
     }
-
-    [System.Serializable]// Allows Unity to display this in the inspector
-    class ProgressionCharacterClass
-    {//repurpose for special class level gains? Not useful for stats
-        public CharacterClass characterClass;
-        public ProgressionStat[] stats;
-    }
-    [System.Serializable]
-    class ProgressionStat
-    {//This structure allows for saving "per attribute" gains in one place
-        public Stat stat;
-        public float[] levels;
-    }
-    
 }
